@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Canvas</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="./modernizr.js"></script>
+  </head>
+
+  <body>
+    <canvas>이 브라우저는 캔버스를 지원하지 않습니다.</canvas>
+
+    <script>
+      // Canvas 지원 여부 확인
+      // Modernizr는 브라우저의 기능들을 조사해서 해당 기능을 지원을 하는지 판별해주는 라이브러리임.
+      // 이걸로 해당 브라우저가 캔버스 기능을 지원하는지 안하는지도 확인할 수 있음.
+      // 확인하고 싶은 기능들을 체크하고 BUILD버튼 눌러서 다운로드 받은 게 modernizr.js
+      // 이렇게 하면 Modernizr라는 객체가 하나 생김. 이걸 자바스크립트에서 사용해서 기능 지원여부 확인 가능.
+      if (Modernizr.canvas) {
+        // 이게 true면 canvas를 지원한다는 뜻. 그럼 해당 블록을 실행할 것임.
+        console.log("Canvas를 지원하는 브라우저");
+      }
+
+      // 또는 이 방법 말고도, 캔버스를 js로 선택한 다음, canvas의 method 아무거나 하나 선택함.
+      // getContext같은 걸 if 조건문에 넣어서 돌려보면, 이것이 존재하면 true가 되서 if 블록을 실행함.
+      // 캔버스의 특정 메소드가 true라는 것은, canvas가 존재한다는 뜻이기도 함.
+      const canvas = document.querySelector("canvas");
+      if (canvas.getContext) {
+        console.log("캔버스 지원");
+      }
+    </script>
+  </body>
+</html>
